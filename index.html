@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hari Prasath M — Senior Systems Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --gotham:#07070a;
+    --gotham-2:#101018;
+    --panel:#15121f;
+    --purple:#7b2fd9;
+    --purple-dim:#3d1f5c;
+    --joker-green:#39e07a;
+    --bat-yellow:#f3c332;
+    --ink:#eae6f2;
+    --ink-dim:#a79fc0;
+    --card:#1b1626;
+    --line:#2a2436;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--gotham);
+    color:var(--ink);
+    font-family:'Space Grotesk', sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+
+  h1,h2,h3, .display{
+    font-family:'Bebas Neue', sans-serif;
+    letter-spacing:0.5px;
+    line-height:1.05;
+  }
+
+  a{color:inherit; text-decoration:none;}
+
+  ::selection{background:var(--purple); color:#fff;}
+
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--joker-green);
+    outline-offset:3px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; scroll-behavior:auto !important;}
+  }
+
+  .wrap{max-width:1080px; margin:0 auto; padding:0 32px;}
+
+  nav{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px 40px;
+    background:linear-gradient(to bottom, rgba(7,7,10,0.92), rgba(7,7,10,0));
+    backdrop-filter:blur(2px);
+  }
+  .brand{
+    font-family:'Bebas Neue', sans-serif;
+    font-size:1.4rem;
+    color:var(--bat-yellow);
+    letter-spacing:1px;
+  }
+  .navlinks{display:flex; gap:28px; font-size:0.85rem; color:var(--ink-dim);}
+  .navlinks a{position:relative; padding:4px 0; transition:color .2s;}
+  .navlinks a:hover{color:var(--joker-green);}
+  @media (max-width:640px){ .navlinks{display:none;} }
+
+  .hero{
+    position:relative;
+    min-height:100svh;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center;
+    padding:120px 24px 80px;
+    background:
+      radial-gradient(circle at 50% 38%, rgba(243,195,50,0.16) 0%, rgba(243,195,50,0.05) 22%, transparent 46%),
+      radial-gradient(circle at 82% 12%, rgba(123,47,217,0.35), transparent 55%),
+      var(--gotham);
+    overflow:hidden;
+  }
+  .hero::before{
+    content:"";
+    position:absolute; left:0; right:0; bottom:0; height:38%;
+    background:linear-gradient(to top, var(--gotham-2) 0%, rgba(16,16,24,0.0) 100%);
+    clip-path:polygon(0% 100%,0% 55%,3% 55%,3% 40%,7% 40%,7% 60%,11% 60%,11% 30%,13% 30%,13% 50%,17% 50%,17% 20%,19% 20%,19% 45%,24% 45%,24% 65%,28% 65%,28% 35%,30% 35%,30% 55%,35% 55%,35% 15%,38% 15%,38% 42%,43% 42%,43% 58%,47% 58%,47% 25%,50% 25%,50% 48%,55% 48%,55% 18%,58% 18%,58% 52%,63% 52%,63% 32%,67% 32%,67% 60%,71% 60%,71% 22%,74% 22%,74% 50%,79% 50%,79% 38%,83% 38%,83% 62%,87% 62%,87% 28%,90% 28%,90% 55%,95% 55%,95% 42%,97% 42%,97% 60%,100% 60%,100% 100%);
+    opacity:0.9;
+  }
+  .bat{
+    width:120px; height:auto; margin-bottom:18px;
+    filter:drop-shadow(0 0 18px rgba(243,195,50,0.35));
+    animation:drift 9s ease-in-out infinite;
+  }
+  @keyframes drift{ 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+
+  .eyebrow-role{
+    color:var(--joker-green);
+    font-size:0.95rem;
+    font-weight:600;
+    margin-bottom:10px;
+  }
+
+  .hero h1{
+    font-size:clamp(3rem, 9vw, 6.4rem);
+    color:var(--ink);
+    text-shadow:0 0 40px rgba(123,47,217,0.35);
+  }
+  .hero h1 span{color:var(--bat-yellow);}
+
+  .hero .tag{
+    max-width:560px; margin:18px auto 0;
+    color:var(--ink-dim);
+    font-size:1.05rem;
+  }
+
+  .hero-cta{
+    margin-top:34px;
+    display:flex; gap:16px; flex-wrap:wrap; justify-content:center;
+  }
+  .btn{
+    display:inline-block;
+    padding:13px 26px;
+    font-size:0.9rem;
+    font-weight:600;
+    border-radius:2px;
+    border:1px solid var(--line);
+    transition:transform .18s, border-color .18s, background .18s;
+  }
+  .btn-primary{
+    background:var(--purple);
+    border-color:var(--purple);
+    color:#fff;
+  }
+  .btn-primary:hover{background:#8f3ef0; transform:translateY(-2px);}
+  .btn-ghost:hover{border-color:var(--joker-green); color:var(--joker-green); transform:translateY(-2px);}
+
+  .contact-strip{
+    margin-top:38px;
+    display:flex; gap:22px; flex-wrap:wrap; justify-content:center;
+    font-size:0.82rem; color:var(--ink-dim);
+  }
+  .contact-strip a:hover{color:var(--bat-yellow);}
+
+  .tear{
+    height:26px;
+    background:var(--gotham-2);
+    clip-path:polygon(0% 0%,4% 100%,8% 10%,12% 90%,16% 20%,20% 100%,24% 5%,28% 95%,32% 15%,36% 100%,40% 10%,44% 90%,48% 25%,52% 100%,56% 5%,60% 90%,64% 15%,68% 100%,72% 20%,76% 90%,80% 10%,84% 100%,88% 15%,92% 95%,96% 10%,100% 100%,100% 0%);
+  }
+
+  section{padding:96px 0;}
+  .section-title{
+    font-size:clamp(2.2rem, 5vw, 3.2rem);
+    margin-bottom:8px;
+  }
+  .section-sub{color:var(--ink-dim); font-size:0.95rem; margin-bottom:48px; max-width:640px;}
+
+  #profile{background:var(--gotham-2);}
+
+  .profile-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:56px;
+    align-items:start;
+  }
+  @media (max-width:800px){ .profile-grid{grid-template-columns:1fr;} }
+
+  .profile-grid ul{list-style:none;}
+  .profile-grid li{
+    position:relative;
+    padding:10px 0 10px 26px;
+    border-bottom:1px solid var(--line);
+    color:var(--ink-dim);
+    font-size:0.95rem;
+  }
+  .profile-grid li::before{
+    content:"♠";
+    position:absolute; left:0; top:10px;
+    color:var(--purple);
+    font-size:0.95rem;
+  }
+
+  .stat-cards{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  .stat{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-left:3px solid var(--bat-yellow);
+    padding:22px 20px;
+  }
+  .stat .num{font-family:'Bebas Neue'; font-size:2.6rem; color:var(--bat-yellow); line-height:1;}
+  .stat .lbl{font-size:0.8rem; color:var(--ink-dim); margin-top:6px;}
+
+  #skills{background:var(--gotham);}
+  .deck{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:18px;
+  }
+  @media (max-width:800px){ .deck{grid-template-columns:repeat(2,1fr);} }
+
+  .card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:6px;
+    padding:22px 18px 18px;
+    position:relative;
+    transition:transform .22s, border-color .22s;
+  }
+  .card:hover{ transform:translateY(-6px) rotate(-1deg); border-color:var(--joker-green); }
+  .card h3{
+    font-family:'Space Grotesk'; font-weight:700; font-size:0.78rem;
+    color:var(--joker-green);
+    margin-bottom:14px;
+    letter-spacing:0.3px;
+  }
+  .card ul{list-style:none; display:flex; flex-direction:column; gap:8px;}
+  .card li{font-size:0.9rem; color:var(--ink);}
+  .card .suit{
+    position:absolute; top:16px; right:16px; font-size:1.1rem; color:var(--purple-dim);
+  }
+
+  #projects{background:var(--gotham-2);}
+  .project{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:36px;
+    margin-bottom:28px;
+    position:relative;
+    overflow:hidden;
+  }
+  .project::after{
+    content:"";
+    position:absolute; right:-40px; top:-40px; width:140px; height:140px;
+    background:radial-gradient(circle, rgba(123,47,217,0.35), transparent 70%);
+  }
+  .project-head{
+    display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px;
+    margin-bottom:6px;
+  }
+  .project-head h3{font-size:1.9rem; color:var(--ink);}
+  .project-head .when{font-size:0.8rem; color:var(--bat-yellow); font-weight:600;}
+  .project-role{color:var(--ink-dim); font-size:0.85rem; margin-bottom:18px;}
+  .project p, .project li{color:var(--ink-dim); font-size:0.94rem;}
+  .project ul{list-style:none; display:grid; gap:9px; margin-top:14px;}
+  .project li{position:relative; padding-left:20px;}
+  .project li::before{content:"—"; position:absolute; left:0; color:var(--joker-green);}
+
+  #edu{background:var(--gotham);}
+  .edu-grid{display:grid; grid-template-columns:1.1fr 0.9fr; gap:56px;}
+  @media (max-width:800px){ .edu-grid{grid-template-columns:1fr;} }
+
+  .timeline{border-left:2px solid var(--purple-dim); padding-left:24px; display:flex; flex-direction:column; gap:32px;}
+  .tl-item{position:relative;}
+  .tl-item::before{
+    content:""; position:absolute; left:-30px; top:4px;
+    width:11px; height:11px; border-radius:50%;
+    background:var(--bat-yellow); box-shadow:0 0 0 4px rgba(243,195,50,0.15);
+  }
+  .tl-item .yr{font-size:0.78rem; color:var(--joker-green); font-weight:600;}
+  .tl-item h3{font-size:1.5rem; margin:4px 0;}
+  .tl-item p{color:var(--ink-dim); font-size:0.9rem;}
+
+  .domain-box{
+    background:var(--card); border:1px solid var(--line); padding:28px;
+  }
+  .domain-box h3{font-size:1.5rem; margin-bottom:16px;}
+  .chip-row{display:flex; gap:10px; flex-wrap:wrap;}
+  .chip{
+    border:1px solid var(--purple);
+    color:var(--ink);
+    padding:8px 16px;
+    font-size:0.82rem;
+    border-radius:20px;
+  }
+
+  footer{
+    background:var(--gotham-2);
+    padding:80px 0 50px;
+    text-align:center;
+  }
+  footer h2{font-size:clamp(2.4rem,7vw,4.2rem); color:var(--ink);}
+  footer h2 span{color:var(--joker-green);}
+  footer .sub{color:var(--ink-dim); margin:14px 0 34px;}
+  .foot-links{display:flex; gap:20px; justify-content:center; flex-wrap:wrap; margin-bottom:40px;}
+  .foot-links a{
+    border:1px solid var(--line); padding:12px 22px; font-size:0.85rem;
+    transition:border-color .2s, color .2s;
+  }
+  .foot-links a:hover{border-color:var(--bat-yellow); color:var(--bat-yellow);}
+  .fine{font-size:0.75rem; color:#5c5570;}
+
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brand">HARI</div>
+  <div class="navlinks">
+    <a href="#profile">Dossier</a>
+    <a href="#skills">Arsenal</a>
+    <a href="#projects">Case&nbsp;Files</a>
+    <a href="#edu">Origins</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <svg class="bat" viewBox="0 0 200 90" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bat symbol">
+    <path fill="#f3c332" d="M100 8c3 10 6 14 10 16-2-6 1-11 6-13-1 7 2 12 8 14 10-8 22-10 34-6-9 4-15 10-18 18 14-2 26 3 36 14-13-1-24 3-31 12 10 3 17 10 21 20-11-6-22-8-32-5 5 8 6 17 3 27-6-9-14-15-23-17 2 9-1 18-8 25-3-10-9-17-17-20-1 10-4 15-9 18-5-3-8-8-9-18-8 3-14 10-17 20-7-7-10-16-8-25-9 2-17 8-23 17-3-10-2-19 3-27-10-3-21-1-32 5 4-10 11-17 21-20-7-9-18-13-31-12 10-11 22-16 36-14-3-8-9-14-18-18 12-4 24-2 34 6 6-2 9-7 8-14 5 2 8 7 6 13 4-2 7-6 10-16z"/>
+  </svg>
+  <div class="eyebrow-role">The Case File Of</div>
+  <h1>HARI PRASATH <span>M</span></h1>
+  <p class="tag">Senior Systems Engineer — five years turning Java, Spring Boot and SQL into
+    backend systems steady enough for Gotham's grid and sharp enough to outsmart the chaos.</p>
+  <div class="hero-cta">
+    <a class="btn btn-primary" href="#projects">Open the case files</a>
+    <a class="btn btn-ghost" href="mailto:hariprasath1296@gmail.com">Send a signal</a>
+  </div>
+  <div class="contact-strip">
+    <a href="mailto:hariprasath1296@gmail.com">hariprasath1296@gmail.com</a>
+    <a href="tel:+917418148938">+91 74181 48938</a>
+    <span>Chennai, TN</span>
+    <a href="https://www.linkedin.com/in/hari-prasath-m-ba8691142/" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</header>
+<div class="tear"></div>
+
+<section id="profile">
+  <div class="wrap">
+    <h2 class="section-title">The Dossier</h2>
+    <p class="section-sub">Who he is, in the words on file.</p>
+    <div class="profile-grid">
+      <ul>
+        <li>Backend developer proficient in Java and Spring Boot REST services, building responsive, intuitive server-side interfaces.</li>
+        <li>Uses the Spring framework to design scalable solutions that meet client objectives and exceed expectations.</li>
+        <li>Deep SQL experience for seamless data interaction and robust server-side logic.</li>
+        <li>Works fluently with Git for collaborative development and code management.</li>
+        <li>Delivers through Agile cycles — iterative, timely, high quality.</li>
+        <li>Strong analytical instincts: diagnoses and resolves complex technical issues efficiently.</li>
+        <li>Communicates cleanly across technical and non-technical stakeholders alike.</li>
+      </ul>
+      <div class="stat-cards">
+        <div class="stat"><div class="num">5+</div><div class="lbl">Years in the field</div></div>
+        <div class="stat"><div class="num">2</div><div class="lbl">Major platforms shipped</div></div>
+        <div class="stat"><div class="num">2</div><div class="lbl">Industries — Telecom & Insurance</div></div>
+        <div class="stat"><div class="num">JAVA</div><div class="lbl">Weapon of choice</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2 class="section-title">The Arsenal</h2>
+    <p class="section-sub">Every tool in the utility belt.</p>
+    <div class="deck">
+      <div class="card"><span class="suit">♣</span>
+        <h3>TECHNOLOGY</h3>
+        <ul><li>Spring Boot Framework</li><li>Android Java</li></ul>
+      </div>
+      <div class="card"><span class="suit">♦</span>
+        <h3>LANGUAGES</h3>
+        <ul><li>Java</li><li>SQL</li></ul>
+      </div>
+      <div class="card"><span class="suit">♠</span>
+        <h3>TOOLS</h3>
+        <ul><li>Eclipse</li><li>Android Studio</li><li>Postman</li><li>Putty</li></ul>
+      </div>
+      <div class="card"><span class="suit">♥</span>
+        <h3>DATABASE</h3>
+        <ul><li>PostgreSQL</li><li>Oracle SQL Developer</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <h2 class="section-title">Case Files</h2>
+    <p class="section-sub">Two builds, two years, one steady hand on the backend.</p>
+
+    <div class="project">
+      <div class="project-head">
+        <h3>ReTEM</h3>
+        <span class="when">Jun '22 — Present</span>
+      </div>
+      <p class="project-role">Senior Systems Engineer, Infosys Limited</p>
+      <p>A web application built for SMEs on Angular and Spring Boot, designed to manage insurance
+        queries and customer interactions from one operations hub.</p>
+      <ul>
+        <li>Implemented backend functionality in Java — chat operations, email operations, a live dashboard, chat history and client work management.</li>
+        <li>Shaped feature discussions to keep integrations feasible within the Java and Spring Boot framework.</li>
+        <li>Worked closely with front-end developers to translate backend data into working functional components.</li>
+        <li>Partnered across cross-functional teams to prioritize work and hit project timelines.</li>
+      </ul>
+    </div>
+
+    <div class="project">
+      <div class="project-head">
+        <h3>Smartchat</h3>
+        <span class="when">May '21 — Jun '22</span>
+      </div>
+      <p class="project-role">Senior Systems Engineer, Infosys Limited</p>
+      <p>A web and mobile app for telecom representatives, built on Java and Angular to streamline
+        internal communication across departments.</p>
+      <ul>
+        <li>Built mobile user functions in Android Studio, tuned for an intuitive, responsive internal experience.</li>
+        <li>Tested and debugged thoroughly to keep the app reliable, performant and usable.</li>
+        <li>Gave technical input that kept features feasible inside the Java–Android Studio build.</li>
+        <li>Helped lift agent productivity across the telecom network service layer, end to end in Java and Android.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="edu">
+  <div class="wrap edu-grid">
+    <div>
+      <h2 class="section-title">Origin Story</h2>
+      <p class="section-sub">The training that came before the badge.</p>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="yr">2018 — 2020</div>
+          <h3>Master of Engineering, Avionics</h3>
+          <p>MIT, Anna University — Chennai</p>
+        </div>
+        <div class="tl-item">
+          <div class="yr">2014 — 2018</div>
+          <h3>Bachelor of Technology, Aeronautical</h3>
+          <p>Hindustan Institute of Technology &amp; Sciences — Chennai</p>
+        </div>
+      </div>
+    </div>
+    <div class="domain-box">
+      <h3>Territory Covered</h3>
+      <div class="chip-row">
+        <span class="chip">Telecom</span>
+        <span class="chip">Insurance</span>
+      </div>
+      <p style="margin-top:20px; color:var(--ink-dim); font-size:0.9rem;">
+        From aeronautics and avionics to Java backends — a background built on precision,
+        now applied to systems that need to hold under pressure.
+      </p>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2>Signal <span>received?</span></h2>
+    <p class="sub">Open to the next case. Reach out any way that works for you.</p>
+    <div class="foot-links">
+      <a href="mailto:hariprasath1296@gmail.com">Email</a>
+      <a href="tel:+917418148938">Call</a>
+      <a href="https://www.linkedin.com/in/hari-prasath-m-ba8691142/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+    <p class="fine">Hari Prasath M · Senior Systems Engineer · Chennai, TN</p>
+  </div>
+</footer>
+
+</body>
+</html>
